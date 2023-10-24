@@ -31,7 +31,7 @@ $(function () {
             
             $("#TableData tr").each(function () {
                 
-                var veiculo = $(this).find("td:eq(0)").text().toLowerCase(); // Primeira Coluna
+                var veiculo = $(this).find("td:eq(0)").text().toLowerCase(); // Pesquisa a primeira coluna
                 
                 if (veiculo.includes(searchTerm)) {
                     
