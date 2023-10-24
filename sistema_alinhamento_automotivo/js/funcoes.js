@@ -1,8 +1,11 @@
 $(function () {
+    
     $.getJSON("js/automoveis.json", function (data) {
-        // Função para preencher a tabela
+
         function fillTable() {
+            
             for (var i = 0; i < data['automoveis'].length; i++) {
+                
                 var row = $("<tr>");
                 row.append("<td scope='col'>" + data['automoveis'][i]['MARCA'] + "</td>");
                 row.append("<td scope='col'>" + data['automoveis'][i]['CARRO'] + "</td>");
@@ -19,15 +22,23 @@ $(function () {
                 $("#TableData").append(row);
             }
         }
+        
         fillTable(); // Preencha a tabela inicialmente
-        // Função para filtrar a tabela com base na pesquisa
+
         $("#searchButton").on("click", function () {
+            
             var searchTerm = $("#searchInput").val().toLowerCase();
+            
             $("#TableData tr").each(function () {
-                var veiculo = $(this).find("td:eq(1)").text().toLowerCase(); // Segunda coluna (nome do veículo)
+                
+                var veiculo = $(this).find("td:eq(1)").text().toLowerCase(); // Segunda coluna (nome do veículo
+                
                 if (veiculo.includes(searchTerm)) {
+                    
                     $(this).show();
+                    
                 } else {
+                    
                     $(this).hide();
                 }
             });
